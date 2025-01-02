@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int search (vector<int>& n, int t) {
+int lower_bound (vector<int>& n, int t) {
     int l = 0, r = n.size() - 1;
     int a = -1;
     while (l <= r) {
@@ -21,6 +21,6 @@ int search (vector<int>& n, int t) {
 int main() {
     vector<int> n = { -1, 0, 3, 5, 7, 9, 12 };
     int t = -1;
-    cout << search(n, t) << "\n";
+    cout << lower_bound(n, t) << "\n";
     return 0;
 }
