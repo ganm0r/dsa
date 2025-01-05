@@ -18,18 +18,18 @@ vector<int> find_peak_in_grid(vector<vector<int>>& n) {
         }
 
         bool greater_num_above = m > 0            && n[m - 1][index_of_max_in_row_m] > n[m][index_of_max_in_row_m];
-        bool greater_num_below = m > n.size() - 1 && n[m + 1][index_of_max_in_row_m] > n[m][index_of_max_in_row_m];
+        bool greater_num_below = m < n.size() - 1 && n[m + 1][index_of_max_in_row_m] > n[m][index_of_max_in_row_m];
 
         if (!greater_num_above && !greater_num_below) return { m, index_of_max_in_row_m };
-        else if (greater_num_above) r = m - 1;
-        else if (greater_num_below) l = m + 1;
+        if (greater_num_above) r = m - 1;
+        else l = m + 1;
     }
 
     return { -1, -1 };
 }
 
 int main() {
-    vector<vector<int>> n = {{1,4},{3,2}};
+    vector<vector<int>> n = {{70,50,40,30,20},{100,1,2,3,4}};
     vector<int> a = find_peak_in_grid(n);
     cout << "[ ";
     for (int i : a) {
