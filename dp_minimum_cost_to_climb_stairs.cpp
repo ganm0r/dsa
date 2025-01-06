@@ -15,6 +15,12 @@ int min_cost_to_climb_stairs(vector<int>& cost) {
         if (dp[i - 1] > dp[i - 2]) dp[i] = cost[i] + dp[i - 2];
         else dp[i] = cost[i] + dp[i - 1];
     }
+    cout << "minimum cost would be the minimum of the last two elements from this array -\n";
+    cout << "[ ";
+    for (int i : dp) {
+        cout << i << " ";
+    }
+    cout << "]\nwhich is,\n";
     if (dp[n - 1] > dp[n - 2]) return dp[n - 2];
     else return dp[n - 1];
 }
