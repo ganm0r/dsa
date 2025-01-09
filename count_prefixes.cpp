@@ -8,10 +8,12 @@ using namespace std;
 
 int count_prefixes(vector<string>& w, string p) {
    int c = 0;
-    for (int i = 0; i < w.size() - 1; i++) {
-        int c1 = 1;
-        for (int j = 0; j < p.size() - 1; j++) {
-            if (j <= w[i].size() && w[i][j] == p[j]) c1++;
+    int c = 0;
+    for (int i = 0; i < w.size(); i++) {
+        int c1 = 0;
+        for (int j = 0; j < p.size(); j++) {
+            if (j < w[i].size() && w[i][j] == p[j]) c1++;
+            else break;
         }
         if (c1 == p.size()) c++;
     }
