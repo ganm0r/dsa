@@ -7,7 +7,6 @@
 using namespace std;
 
 int count_prefixes(vector<string>& w, string p) {
-   int c = 0;
     int c = 0;
     for (int i = 0; i < w.size(); i++) {
         int c1 = 0;
