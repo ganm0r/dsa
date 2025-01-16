@@ -24,9 +24,23 @@ int xor_all_nums_n2_time(vector<int>& n1, vector<int>& n2) {
     return r;
 }
 
+int xor_all_nums_n_time(vector<int>& n1, vector<int>& n2) {
+    int x = 0, y = 0;
+
+    for (int i = 0; i < n1.size(); i++) {
+        x ^= n1[i];
+    }
+
+    for (int i = 0; i < n2.size(); i++) {
+        y ^= n2[i];
+    }
+
+    return (n1.size() % 2 * y) ^ (n2.size() % 2 * x);
+}
+
 int main() {
     vector<int> n1 = { 2,1,3 };
     vector<int> n2 = { 10,2,5,0 };
-    cout << xor_all_nums_n2_time(n1, n2) << "\n";
+    cout << xor_all_nums_n_time(n1, n2) << "\n";
     return 0;
 }
