@@ -7,7 +7,7 @@
 
 using namespace std;
 
-vector<int> bit_manipulation_counting_bits_n2_time(int n) {
+vector<int> counting_bits_n2_time(int n) {
     vector<int> r(n + 1);
     for (int i = 0; i <= n; i++) {
         for (int j = 31; j >= 0; j--) {
@@ -18,9 +18,19 @@ vector<int> bit_manipulation_counting_bits_n2_time(int n) {
     return r;
 }
 
+vector<int> counting_bits_n_time(int n) {
+    vector<int> r(n + 1);
+    r[0] = 0;
+    for (int i = 0; i <= n; i++) {
+        r[i] = r[i >> 1] + (i & 1);
+    }
+
+    return r;
+}
+
 int main() {
     cout << "[ ";
-    for (int i : bit_manipulation_counting_bits_n2_time(21)) {
+    for (int i : counting_bits_n_time(21)) {
         cout << i << " ";
     }
     cout << "]" << "\n";
